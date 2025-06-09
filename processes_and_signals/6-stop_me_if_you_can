@@ -1,20 +1,13 @@
 #!/usr/bin/env bash
-# 6-stop_me_if_you_can: A script to stop the "4-to_infinity_and_beyond" process
+#6-stop_me_if_you_can
 
+echo "Attempting to stop the '4-to_infinity_and_beyond' process..."
 
-stop_process() {
-    pid=$(ps aux | grep '4-to_infinity_and_beyond' | grep -v 'grep' | awk '{print $2}')
-    
-    if [ -n "$pid" ]; then
-        kill -2 "$pid"
-        echo "Process '4-to_infinity_and_beyond' (PID $pid) found and termination signal sent."
-    else
-        echo "Could not find or terminate process '4-to_infinity_and_beyond'. It might not be running."
-    fi
-}
+if pkill "4-to_infinity_and_beyond"; then
+    echo "Process '4-to_infinity_and_beyond' found and termination signal sent."
+else
+    echo "Could not find or terminate process '4-to_infinity_and_beyond'. It might not be running."
+fi
 
-trap stop_process SIGINT
+echo "Script finished."
 
-while true; do
-    sleep 1
-done
