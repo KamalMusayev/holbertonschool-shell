@@ -1,9 +1,13 @@
 #!/usr/bin/env bash
-# This script finds and terminates the process "4-to_infinity_and_beyond"
-process_name="4-to_infinity_and_beyond"
-pid=$(ps aux | grep "$process_name" | grep -v "grep" | awk '{print $2}')
+#6-stop_me_if_you_can
+echo "Attempting to stop the '4-to_infinity_and_beyond' process..."
 
-if [ -n "$pid" ]; then
-  echo "Terminating process $process_name with PID $pid"
-  kill -SIGTERM "$pid"
+pkill "4-to_infinity_and_beyond"
+
+if [ $? -eq 0 ]; then
+    echo "Process '4-to_infinity_and_beyond' found and termination signal sent."
+else
+    echo "Could not find or terminate process '4-to_infinity_and_beyond'. It might not be running."
 fi
+
+echo "Script finished."
