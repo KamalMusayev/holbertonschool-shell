@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # This script finds and terminates the process "4-to_infinity_and_beyond"
 process_name="4-to_infinity_and_beyond"
 pid=$(ps aux | grep "$process_name" | grep -v "grep" | awk '{print $2}')
