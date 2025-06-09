@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#5-4_bad_luck_8_is_your_chance
+count=1
+while [$count -le 10]
+do
+  echo "best School"
+  if [$count -eq 4]
+    echo "bad luck"
+  elif [$count -eq 8]
+    echo "good luck"
+  else
+    echo "Best School"
+  fi
+    ((count++))
+done
