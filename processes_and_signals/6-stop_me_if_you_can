@@ -3,11 +3,10 @@
 
 echo "Attempting to stop the '4-to_infinity_and_beyond' process..."
 
-if pkill "4-to_infinity_and_beyond"; then
+if pkill -f "4-to_infinity_and_beyond"; then
     echo "Process '4-to_infinity_and_beyond' found and termination signal sent."
 else
     echo "Could not find or terminate process '4-to_infinity_and_beyond'. It might not be running."
 fi
 
 echo "Script finished."
-
