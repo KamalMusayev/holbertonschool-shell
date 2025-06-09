@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# shellcheck disable=SC2009
+
+for pid in /proc/[0-9]*; do
+    if [ -f "$pid/status" ]; then
+        process_name=$(grep -i "Name" "$pid/status" | awk '{print $2}')
+        if [[ "$process_name" == *bash* ]]; then
+            echo "$(basename $pid) $process_name"
+        fi
+    fi
+done
+
