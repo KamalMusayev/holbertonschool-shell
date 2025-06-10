@@ -1,8 +1,4 @@
 #!/usr/bin/env bash
-#Hello
-PID=$(ps aux | grep '4-to_infinity_and_beyond' | grep -v 'grep' | awk '{print $2}')
+# This script stops the 4-to_infinity_and_beyond process
 
-if [ -n "$PID" ]
-then
-  kill -9 "$PID"
-fi
+pkill -f "4-to_infinity_and_beyond"
